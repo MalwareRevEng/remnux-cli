@@ -161,15 +161,15 @@ const validOS = async () => {
   try {
     const contents = fs.readFileSync(releaseFile, 'utf8')
 
-    if (contents.indexOf('UBUNTU_CODENAME=bionic') !== -1) {
-      osVersion = '18.04'
-      osCodename = 'bionic'
-      return true
-    }
-
     if (contents.indexOf('UBUNTU_CODENAME=focal') !== -1) {
       osVersion = '20.04'
       osCodename = 'focal'
+      return true
+    }
+
+    if (contents.indexOf('UBUNTU_CODENAME=jammy') !== -1) {
+      osVersion = '22.04'
+      osCodename = 'jammy'
       return true
     }
 
